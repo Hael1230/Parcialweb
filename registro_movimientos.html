@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/registro_movimientos.css">
+    <title>Registro de Movimiento</title>
+</head>
+<body>
+
+    <div class="registro-container">
+        <h2>Registro de Movimiento</h2>
+
+        <form action="procesar_registro.php" method="post">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" required>
+
+            <label for="tipo_ingreso">Tipo de Ingreso:</label>
+            <select id="tipo_ingreso" name="tipo_ingreso" required>
+                <option value="ingreso">Ingreso</option>
+                <option value="gasto">Gasto</option>
+            </select>
+
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor" name="valor" required>
+
+            <div class="buttons-container">
+                <button type="submit">Registrar</button>
+                <button type="button" onclick="cancelarRegistro()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function cancelarRegistro() {
+            window.location.href = 'movimientos.php';
+        }
+    </script>
+
+</body>
+</html>

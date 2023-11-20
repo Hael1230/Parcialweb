@@ -10,6 +10,7 @@
 
     <div class="header">
         <img src="src/img/logo.png" alt="Logo">
+        <button onclick="openRegistroMovimientos()">+</button>
     </div>
 
     <div class="movimientos-container">
@@ -29,7 +30,7 @@
                     <tr>
                         <td><?php echo $movimiento["date_bill"]; ?></td>
                         <td><?php echo $movimiento["observation"]; ?></td>
-                        <td><?php echo $movimiento["value"]; ?></td>
+                        <td><?php echo ($movimiento["type"] == 1) ? abs($movimiento["value"]) : -$movimiento["value"]; ?></td>
                     </tr>
                 <?php endforeach; ?>
             </table>
@@ -37,6 +38,12 @@
             <p>No hay movimientos disponibles.</p>
         <?php endif; ?>
     </div>
+
+    <script>
+        function openRegistroMovimientos() {
+            window.open('registro_movimientos.html', '_blank');
+        }
+    </script>
 
 </body>
 </html>
