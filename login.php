@@ -26,7 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         // Inicio de sesión exitoso
-        echo "Inicio de sesión exitoso. ¡Bienvenido!";
+        // Redirigir a la página de movimientos.html
+        header("Location: movimientos.html");
+        exit();
     } else {
         // Credenciales incorrectas
         echo "Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.";
