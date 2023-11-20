@@ -25,12 +25,16 @@
                     <th>Fecha</th>
                     <th>Descripción</th>
                     <th>Valor</th>
+                    <th>Acciones</th>
                 </tr>
                 <?php foreach ($movimientos as $movimiento) : ?>
                     <tr>
                         <td><?php echo $movimiento["date_bill"]; ?></td>
                         <td><?php echo $movimiento["observation"]; ?></td>
                         <td><?php echo ($movimiento["type"] == 1) ? abs($movimiento["value"]) : -$movimiento["value"]; ?></td>
+                        <td>
+                            <button onclick="openConsultaMovimiento(<?php echo $movimiento['id']; ?>)">Consulta</button>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
@@ -43,7 +47,12 @@
         function openRegistroMovimientos() {
             window.open('registro_movimientos.html', '_blank');
         }
+
+        function openConsultaMovimiento(idMovimiento) {
+            window.open('consulta_movimiento.php?id=' + idMovimiento, '_blank');
+        }
     </script>
 
 </body>
 </html>
+
